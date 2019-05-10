@@ -58,6 +58,11 @@ class Navbar extends Component {
                                     Productos
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link to={'/compras'} className="nav-link">
+                                    Compras
+                                </Link>
+                            </li>
                         </ul>
                      ) : null }
 

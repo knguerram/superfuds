@@ -79,7 +79,7 @@ class EditarProducto extends Component {
                                 <div className="form-group">
                                     <label>Fecha de vencimiento:</label>
                                     <input 
-                                        type="text"
+                                        type="date"
                                         className="form-control"
                                         name="fecha"
                                         placeholder="Fecha de vencimiento"
@@ -92,7 +92,7 @@ class EditarProducto extends Component {
                                 <div className="form-group">
                                     <label>Numero de Lote:</label>
                                     <input 
-                                        type="text"
+                                        type="number"
                                         className="form-control"
                                         name="numero"
                                         placeholder="Número de lote"
@@ -105,7 +105,10 @@ class EditarProducto extends Component {
                                 <div className="form-group">
                                     <label>Precio:</label>
                                     <input 
-                                        type="text"
+                                        type="number" 
+                                        min="0"
+                                        max="1000000000" 
+                                        step="0"
                                         className="form-control"
                                         name="precio"
                                         placeholder="Número de lote"
@@ -120,6 +123,7 @@ class EditarProducto extends Component {
                                     <input 
                                         type="number"
                                         min="0"
+                                        max="1000000000000000" 
                                         className="form-control"
                                         name="existencia"
                                         placeholder="Cantidad en Existencia"

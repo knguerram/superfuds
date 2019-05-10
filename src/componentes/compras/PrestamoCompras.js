@@ -11,10 +11,11 @@ import FichaClientes from '../clientes/FichaClientes';
 // REDUX Actions
 import { buscarUsuario } from '../../actions/buscarUsuarioActions';
 
-class FacturarProducto extends Component {
+class FacturarCompras extends Component {
     state = { 
         noResultados: false,
-        busqueda : ''
+        busqueda : '',
+        cantidad: '',
     }
 
     // Buscar cliente por Documento
@@ -24,6 +25,9 @@ class FacturarProducto extends Component {
         // obtener el valor a buscar
         const { busqueda } = this.state;
 
+        // cantidad a comprar
+        const { cantidad } = this.state;
+        console.log(cantidad);
         // extraer firestore
         const { firestore, buscarUsuario } = this.props;
 
@@ -85,7 +89,7 @@ class FacturarProducto extends Component {
         firestore.update({
             collection: 'productos',
             doc: producto.id
-        }, producto ).then(history.push('/'));
+        }, producto ).then(history.push('/compras'));
     }
 
 
@@ -116,7 +120,7 @@ class FacturarProducto extends Component {
                                 type="button"
                                 className="btn btn-primary btn-block"
                                 onClick={this.solicitarFacturar}
-                                >Solicitar Producto</button>
+                                >Solicitar Productos</button>
         } else {
             fichaClientes = null;
             btnSolicitar = null;
@@ -135,7 +139,7 @@ class FacturarProducto extends Component {
         return ( 
             <div className="row">
                 <div className="col-12 mb-4">
-                    <Link to={'/'} className="btn btn-secondary">
+                    <Link to={'/compras'} className="btn btn-secondary">
                         <i className="fas fa-arrow-circle-left"></i> {''}
                         Volver al Listado
                     </Link>
@@ -183,7 +187,7 @@ class FacturarProducto extends Component {
     }
 }
  
-FacturarProducto.propTypes = {
+FacturarCompras.propTypes = {
     firestore: PropTypes.object.isRequired
 }
  
@@ -199,4 +203,4 @@ export default compose(
         producto : ordered.producto && ordered.producto[0],
         usuario: usuario
     }), {  buscarUsuario })
-)(FacturarProducto)
+)(FacturarCompras)

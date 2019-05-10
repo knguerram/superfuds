@@ -89,7 +89,9 @@ class EditarClientes extends Component {
                                 <div className="form-group">
                                     <label>Documento:</label>
                                     <input 
-                                        type="text"
+                                        type="number"
+                                        min="0"
+                                        max="1000000000000000" 
                                         className="form-control"
                                         name="documento"
                                         placeholder="Documento del cliente"

@@ -73,7 +73,7 @@ class NuevoProducto extends Component {
                                 <div className="form-group">
                                     <label>Fecha de Vencimiento:</label>
                                     <input 
-                                        type="text"
+                                        type="date"
                                         className="form-control"
                                         name="fecha"
                                         placeholder="Fecha de vencimiento"
@@ -86,7 +86,9 @@ class NuevoProducto extends Component {
                                 <div className="form-group">
                                     <label>Número de Lote:</label>
                                     <input 
-                                        type="text"
+                                        type="number"
+                                        min="0"
+                                        max="1000000000000000" 
                                         className="form-control"
                                         name="numero"
                                         placeholder="Número del Lote"
@@ -99,10 +101,13 @@ class NuevoProducto extends Component {
                                 <div className="form-group">
                                     <label>Precio:</label>
                                     <input 
-                                        type="text"
+                                        type="number" 
+                                        min="0"
+                                        max="10000000" 
+                                        step="0"
                                         className="form-control"
                                         name="precio"
-                                        placeholder="Número del Lote"
+                                        placeholder="Precio del producto"
                                         required
                                         value={this.state.precio}
                                         onChange={this.leerDato}
@@ -114,6 +119,7 @@ class NuevoProducto extends Component {
                                     <input 
                                         type="number"
                                         min="0"
+                                        max="1000000000000000" 
                                         className="form-control"
                                         name="existencia"
                                         placeholder="Cantidad en Existencia"

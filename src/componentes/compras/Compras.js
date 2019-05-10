@@ -8,30 +8,14 @@ import Spinner from '../layout/Spinner';
 
 
 const Productos = ({productos, firestore}) => {
-
-    const eliminarProducto = id => {
-        // eliminar producto de Firestore
-        firestore.delete({
-            collection : 'productos',
-            doc : id
-        });
-        
-    }
-
+    
     if(!productos) return <Spinner />
-
 
     return ( 
         <div className="row">
-            <div className="col-12 mb-4">
-                <Link to="/productos/nuevo" className="btn btn-success">
-                    <i className="fas fa-plus"></i> {''}
-                    Nuevo Producto
-                </Link>
-            </div>
             <div className="col-md-8">
                 <h2>
-                    Inventario
+                    Productos
                 </h2>
             </div>
 
@@ -59,22 +43,18 @@ const Productos = ({productos, firestore}) => {
                             <td>{producto.existencia - producto.facturar.length}</td>
                             <td>
                                 <Link 
-                                    to={`/productos/mostrar/${producto.id}`}
+                                    to={`/compras/mostrar/${producto.id}`}
                                     className="btn btn-success btn-block"
                                 > 
                                     <i className="fas fa-angle-double-right"></i> {''}  
-                                    Más Información
+                                    Productos a Facturar 
                                 </Link>
-
-                                <button 
-                                    type="button"
-                                    className="btn btn-danger btn-block"
-                                    onClick={() => eliminarProducto(producto.id)}
-                                >
-                                    <i className="fas fa-trash-alt"></i> {''}
-                                    Eliminar
-
-                                </button>
+                                <Link to={`/compras/facturar/${producto.id}`}
+                                 className="btn btn-success btn-block"
+                                >   
+                                 <i className="fas fa-angle-double-right"></i> {''}  
+                                 Solicitar Productos 
+                                </Link>
                             </td>
                         </tr>
                     ))}
